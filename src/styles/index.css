@@ -1,0 +1,116 @@
+@import "tailwindcss";
+@import "./glassmorphism.css";
+@import "./animations.css";
+
+@layer base {
+  :root {
+    /* Color System (Light Theme) */
+    --color-primary: #4f46e5; /* indigo-600 */
+    --color-primary-hover: #4338ca;
+    --color-primary-glow: rgba(79, 70, 229, 0.15);
+    
+    --color-secondary: #0ea5e9; /* sky-500 */
+    --color-accent: #f59e0b; /* amber-500 */
+    --color-success: #10b981; /* emerald-500 */
+    --color-warning: #f59e0b;
+    --color-danger: #ef4444; /* red-500 */
+    --color-info: #3b82f6;
+
+    --bg-primary: #f8fafc; /* slate-50 */
+    --bg-secondary: #ffffff;
+    --text-primary: #0f172a; /* slate-900 */
+    --text-secondary: #475569; /* slate-600 */
+    --text-muted: #94a3b8; /* slate-400 */
+
+    /* Glass System (Light Theme) */
+    --glass-bg: rgba(255, 255, 255, 0.4);
+    --glass-bg-hover: rgba(255, 255, 255, 0.6);
+    --glass-card-bg: rgba(255, 255, 255, 0.45);
+    --glass-card-bg-hover: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(15, 23, 42, 0.08);
+    --glass-border-hover: rgba(15, 23, 42, 0.15);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04), inset 0 1px 1px 0 rgba(255, 255, 255, 0.3);
+    --glass-shadow-hover: 0 12px 40px 0 rgba(31, 38, 135, 0.08), inset 0 1px 1px 0 rgba(255, 255, 255, 0.5);
+
+    --glass-input-bg: rgba(255, 255, 255, 0.6);
+    --glass-input-border: rgba(15, 23, 42, 0.1);
+    --glass-input-bg-focus: rgba(255, 255, 255, 0.9);
+
+    --glass-btn-bg: rgba(255, 255, 255, 0.05);
+    --glass-btn-border: rgba(15, 23, 42, 0.08);
+    --glass-btn-bg-hover: rgba(255, 255, 255, 0.15);
+    --glass-btn-border-hover: rgba(15, 23, 42, 0.15);
+
+    --glass-sidebar-bg: rgba(255, 255, 255, 0.65);
+    --glass-navbar-bg: rgba(255, 255, 255, 0.5);
+  }
+
+  .dark {
+    /* Color System (Dark Theme) */
+    --color-primary: #6366f1; /* indigo-500 */
+    --color-primary-hover: #4f46e5;
+    --color-primary-glow: rgba(99, 102, 241, 0.25);
+
+    --color-secondary: #38bdf8; /* sky-400 */
+    --color-accent: #fbbf24; /* amber-400 */
+    --color-success: #34d399; /* emerald-400 */
+    --color-warning: #fbbf24;
+    --color-danger: #f87171; /* red-400 */
+    --color-info: #60a5fa;
+
+    --bg-primary: #060b18; /* very dark slate-blue */
+    --bg-secondary: #0a0f1d;
+    --text-primary: #f8fafc; /* slate-50 */
+    --text-secondary: #94a3b8; /* slate-400 */
+    --text-muted: #64748b; /* slate-500 */
+
+    /* Glass System (Dark Theme) */
+    --glass-bg: rgba(10, 15, 29, 0.4);
+    --glass-bg-hover: rgba(10, 15, 29, 0.55);
+    --glass-card-bg: rgba(10, 15, 29, 0.45);
+    --glass-card-bg-hover: rgba(10, 15, 29, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --glass-border-hover: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25), inset 0 1px 1px 0 rgba(255, 255, 255, 0.05);
+    --glass-shadow-hover: 0 12px 40px 0 rgba(0, 0, 0, 0.35), inset 0 1px 1px 0 rgba(255, 255, 255, 0.08);
+
+    --glass-input-bg: rgba(10, 15, 29, 0.5);
+    --glass-input-border: rgba(255, 255, 255, 0.08);
+    --glass-input-bg-focus: rgba(10, 15, 29, 0.85);
+
+    --glass-btn-bg: rgba(255, 255, 255, 0.03);
+    --glass-btn-border: rgba(255, 255, 255, 0.05);
+    --glass-btn-bg-hover: rgba(255, 255, 255, 0.08);
+    --glass-btn-border-hover: rgba(255, 255, 255, 0.1);
+
+    --glass-sidebar-bg: rgba(6, 11, 24, 0.7);
+    --glass-navbar-bg: rgba(6, 11, 24, 0.4);
+  }
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.5);
+}
