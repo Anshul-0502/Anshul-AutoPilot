@@ -1,0 +1,1 @@
+# Python backend uses the standard library; no third-party runtime dependencies.

@@ -92,7 +92,7 @@ export const AuthProvider = ({ children }) => {
         refreshUser: verifyAuth
       }}
     >
-      {children}
+      <React.Fragment key={currentUser?._id || 'signed-out'}>{children}</React.Fragment>
     </AuthContext.Provider>
   );
 };
