@@ -46,7 +46,7 @@ python -m unittest discover -s tests -v
 npm run build
 ```
 
-15 Python tests pass, covering route contracts, cookie behavior, refresh/logout, ownership, validation, updates, imports and queue deduplication. Auth transport is mocked in these unit tests. Separate rollback-only SQL checks on the provisioned Supabase database passed owner isolation and transactional focus reward idempotency. Local frontend build is currently blocked by the uploaded Windows-only native modules and unavailable package downloads; a clean Linux `npm ci` is required. `/api/v1/health` reports configuration presence, not live database connectivity.
+15 Python tests pass, covering route contracts, cookie behavior, refresh/logout, ownership, validation, updates, imports and queue deduplication. Auth transport is mocked in these unit tests. Separate rollback-only SQL checks on the provisioned Supabase database passed owner isolation and transactional focus reward idempotency. GitHub Actions completed a clean Linux `npm ci`, production `npm run build`, and all 15 Python tests successfully on commit `513aaa5a8adcf5612144d978c013ae58b5b896e6`. The missing `@emnapi/runtime` lockfile entry that blocked clean installation was repaired. `/api/v1/health` reports configuration presence, not live database connectivity.
 
 ## Scope and limitations
 
