@@ -1,0 +1,26 @@
+"""Explicit mapping of existing frontend endpoints to validated Supabase resources."""
+# path: model, list response key, item response key, supported operations
+RESOURCES = {
+ 'tasks': ('Task','tasks','task','GCPUD'),
+ 'planner': ('PlannerEvent','events','event','GCPUD'),
+ 'projects': ('Project','projects','project','GCPUD'),
+ 'study/subjects': ('StudySubject','subjects','subject','GCPUD'),
+ 'study/notes': ('StudyNote','notes','note','GCPUD'),
+ 'study/pdfs': ('StudyPdf','pdfs','pdf','GCPUD'),
+ 'study/resources': ('StudyResource','resources','resource','GCPUD'),
+ 'study/courses': ('StudyCourse','courses','course','GCPUD'),
+ 'study/revisions': ('StudyRevision','revisions','revision','GCPUD'),
+ 'study/sessions': ('StudySession','sessions','session','GC'),
+ 'coding/languages': ('CodingLanguage','languages','language','GCPUD'),
+ 'coding/problems': ('DSAProblem','problems','problem','GCPUD'),
+ 'coding/snippets': ('CodeSnippet','snippets','snippet','GCPUD'),
+ 'coding/notes': ('CodingNote','notes','note','GCPUD'),
+ 'coding/resources': ('CodingResource','resources','resource','GCPUD'),
+ 'coding/interview': ('InterviewTopic','interviewTopics','interviewTopic','GCPUD'),
+ 'coding/sessions': ('CodingSession','timerLogs','session','GC'),
+ 'notifications': ('Notification',None,None,'GCPUD'),
+ 'notifications/alerts': ('AlertRegister',None,None,'GCPUD'),
+ 'notifications/queue': ('NotificationQueue',None,None,'GCPUD'),
+ 'ai/chat': ('ChatMessage',None,None,'GCX'),
+ 'health/focus-sessions': ('FocusSession','focusSessions','session','GC'),
+}

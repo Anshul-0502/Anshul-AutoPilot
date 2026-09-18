@@ -1,0 +1,1531 @@
+{
+  "AlertRegister": {
+    "type": "object",
+    "properties": {
+      "label": {
+        "type": "string",
+        "required": true
+      },
+      "time": {
+        "type": "string",
+        "required": true
+      },
+      "enabled": {
+        "type": "boolean",
+        "default": false
+      },
+      "type": {
+        "type": "string",
+        "default": "other",
+        "enum": [
+          "water",
+          "study",
+          "habit",
+          "eye",
+          "other"
+        ]
+      }
+    }
+  },
+  "ChatMessage": {
+    "type": "object",
+    "properties": {
+      "sender": {
+        "type": "string",
+        "required": true,
+        "enum": [
+          "user",
+          "assistant"
+        ]
+      },
+      "text": {
+        "type": "string",
+        "required": true
+      },
+      "timestamp": {
+        "type": "string",
+        "required": true
+      }
+    }
+  },
+  "CodeSnippet": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "required": true
+      },
+      "lang": {
+        "type": "string",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "default": ""
+      },
+      "code": {
+        "type": "string",
+        "required": true
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "default": []
+      },
+      "favorite": {
+        "type": "boolean",
+        "default": false
+      }
+    }
+  },
+  "CodingLanguage": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "progress": {
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 100
+      },
+      "status": {
+        "type": "string",
+        "default": "active",
+        "enum": [
+          "active",
+          "inactive"
+        ]
+      }
+    }
+  },
+  "CodingNote": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "required": true
+      },
+      "content": {
+        "type": "string",
+        "default": ""
+      },
+      "lang": {
+        "type": "string",
+        "default": "General"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "default": []
+      },
+      "codeSnippet": {
+        "type": "string",
+        "default": ""
+      },
+      "favorite": {
+        "type": "boolean",
+        "default": false
+      },
+      "date": {
+        "type": "string",
+        "required": true
+      }
+    }
+  },
+  "CodingResource": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "type": {
+        "type": "string",
+        "default": "Documentation"
+      },
+      "url": {
+        "type": "string",
+        "required": true
+      },
+      "lang": {
+        "type": "string",
+        "default": "General"
+      },
+      "notes": {
+        "type": "string",
+        "default": ""
+      }
+    }
+  },
+  "CodingSession": {
+    "type": "object",
+    "properties": {
+      "type": {
+        "type": "string",
+        "required": true
+      },
+      "durationMinutes": {
+        "type": "number",
+        "required": true,
+        "min": 1
+      },
+      "date": {
+        "type": "string",
+        "required": true
+      }
+    }
+  },
+  "DSAProblem": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "platform": {
+        "type": "string",
+        "default": "LeetCode"
+      },
+      "difficulty": {
+        "type": "string",
+        "default": "Medium",
+        "enum": [
+          "Easy",
+          "Medium",
+          "Hard",
+          "easy",
+          "medium",
+          "hard"
+        ]
+      },
+      "topic": {
+        "type": "string",
+        "default": "General"
+      },
+      "status": {
+        "type": "string",
+        "default": "Solved"
+      },
+      "timeTaken": {
+        "type": "string",
+        "default": "15 mins"
+      },
+      "revisionRequired": {
+        "type": "boolean",
+        "default": false
+      },
+      "solutionCode": {
+        "type": "string",
+        "default": ""
+      },
+      "complexityAnalysis": {
+        "type": "string",
+        "default": ""
+      },
+      "dateLogged": {
+        "type": "string",
+        "required": true
+      }
+    }
+  },
+  "DataMigration": {
+    "type": "object",
+    "properties": {
+      "status": {
+        "type": "string",
+        "default": "pending",
+        "enum": [
+          "pending",
+          "completed",
+          "failed"
+        ]
+      },
+      "importedCounts": {
+        "type": "any",
+        "default": {}
+      },
+      "completedAt": {
+        "type": "date"
+      }
+    }
+  },
+  "FocusSession": {
+    "type": "object",
+    "properties": {
+      "type": {
+        "type": "string",
+        "default": "Pomodoro",
+        "required": true,
+        "enum": [
+          "Pomodoro",
+          "Short Break",
+          "Long Break",
+          "Deep Work",
+          "Mindfulness",
+          "Meditation"
+        ]
+      },
+      "duration": {
+        "type": "number",
+        "required": true,
+        "min": 1
+      },
+      "date": {
+        "type": "string",
+        "required": true
+      },
+      "rewardProcessed": {
+        "type": "boolean",
+        "default": false
+      },
+      "xpAwarded": {
+        "type": "number",
+        "default": 0
+      },
+      "coinsAwarded": {
+        "type": "number",
+        "default": 0
+      }
+    }
+  },
+  "Goal": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "default": ""
+      },
+      "category": {
+        "type": "string",
+        "default": "custom",
+        "enum": [
+          "coding",
+          "dsa",
+          "study",
+          "task",
+          "project",
+          "health",
+          "skill",
+          "custom"
+        ]
+      },
+      "metric": {
+        "type": "string",
+        "default": "custom",
+        "enum": [
+          "dsa_problems_solved",
+          "coding_minutes",
+          "study_minutes",
+          "tasks_completed",
+          "projects_completed",
+          "workouts_completed",
+          "meditation_minutes",
+          "water_goal_days",
+          "focus_minutes",
+          "xp_earned",
+          "custom"
+        ]
+      },
+      "targetValue": {
+        "type": "number",
+        "default": 1,
+        "required": true,
+        "min": 1
+      },
+      "manualCurrentValue": {
+        "type": "number",
+        "default": 0,
+        "min": 0
+      },
+      "unit": {
+        "type": "string",
+        "default": ""
+      },
+      "period": {
+        "type": "string",
+        "default": "daily",
+        "enum": [
+          "daily",
+          "weekly",
+          "monthly",
+          "custom",
+          "lifetime"
+        ]
+      },
+      "startDate": {
+        "type": "date",
+        "required": true
+      },
+      "endDate": {
+        "type": "date",
+        "required": true
+      },
+      "status": {
+        "type": "string",
+        "default": "active",
+        "enum": [
+          "active",
+          "completed",
+          "paused",
+          "cancelled",
+          "archived"
+        ]
+      },
+      "sourceFilter": {
+        "type": "any",
+        "default": {}
+      }
+    }
+  },
+  "Habit": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "required": true
+      },
+      "category": {
+        "type": "string",
+        "required": true
+      },
+      "streak": {
+        "type": "number",
+        "default": 0
+      },
+      "history": {
+        "type": "object",
+        "default": {}
+      }
+    }
+  },
+  "HealthProfile": {
+    "type": "object",
+    "properties": {
+      "waterGoal": {
+        "type": "number",
+        "default": 8
+      },
+      "sleepTime": {
+        "type": "string",
+        "default": "23:00"
+      },
+      "wakeTime": {
+        "type": "string",
+        "default": "07:00"
+      },
+      "sleepQuality": {
+        "type": "number",
+        "default": 80
+      },
+      "reminders": {
+        "type": "object",
+        "properties": {
+          "water": {
+            "type": "boolean",
+            "default": true
+          },
+          "eyeBreak": {
+            "type": "boolean",
+            "default": true
+          },
+          "stretchBreak": {
+            "type": "boolean",
+            "default": false
+          },
+          "sleep": {
+            "type": "boolean",
+            "default": true
+          }
+        }
+      }
+    }
+  },
+  "InterviewTopic": {
+    "type": "object",
+    "properties": {
+      "category": {
+        "type": "string",
+        "required": true
+      },
+      "title": {
+        "type": "string",
+        "required": true
+      },
+      "completed": {
+        "type": "boolean",
+        "default": false
+      }
+    }
+  },
+  "MeditationSession": {
+    "type": "object",
+    "properties": {
+      "duration": {
+        "type": "number",
+        "required": true
+      },
+      "date": {
+        "type": "string",
+        "required": true
+      }
+    }
+  },
+  "Notification": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "required": true
+      },
+      "message": {
+        "type": "string",
+        "required": true
+      },
+      "desc": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string",
+        "default": "info",
+        "enum": [
+          "study",
+          "coding",
+          "health",
+          "task",
+          "system",
+          "info"
+        ]
+      },
+      "read": {
+        "type": "boolean",
+        "default": false
+      },
+      "date": {
+        "type": "string"
+      }
+    }
+  },
+  "NotificationQueue": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "required": true
+      },
+      "message": {
+        "type": "string",
+        "required": true
+      },
+      "type": {
+        "type": "string",
+        "default": "info",
+        "enum": [
+          "study",
+          "coding",
+          "health",
+          "task",
+          "system",
+          "info"
+        ]
+      },
+      "scheduledFor": {
+        "type": "date",
+        "required": true
+      },
+      "status": {
+        "type": "string",
+        "default": "pending",
+        "enum": [
+          "pending",
+          "sent",
+          "failed"
+        ]
+      },
+      "error": {
+        "type": "string"
+      },
+      "sentAt": {
+        "type": "date"
+      }
+    }
+  },
+  "PlannerEvent": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "required": true
+      },
+      "startTime": {
+        "type": "string",
+        "required": true
+      },
+      "endTime": {
+        "type": "string",
+        "required": true
+      },
+      "category": {
+        "type": "string",
+        "default": "other"
+      },
+      "duration": {
+        "type": "number",
+        "required": true
+      },
+      "date": {
+        "type": "date",
+        "required": true
+      }
+    }
+  },
+  "Project": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "default": ""
+      },
+      "category": {
+        "type": "string",
+        "default": "General"
+      },
+      "techStack": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "default": []
+      },
+      "startDate": {
+        "type": "string",
+        "default": ""
+      },
+      "deadline": {
+        "type": "string",
+        "default": ""
+      },
+      "priority": {
+        "type": "string",
+        "default": "Medium"
+      },
+      "status": {
+        "type": "string",
+        "default": "In Progress"
+      },
+      "version": {
+        "type": "string",
+        "default": "v1.0.0"
+      },
+      "progress": {
+        "type": "number",
+        "default": 0
+      },
+      "tasks": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "any",
+              "required": true
+            },
+            "title": {
+              "type": "string",
+              "required": true
+            },
+            "description": {
+              "type": "string",
+              "default": ""
+            },
+            "priority": {
+              "type": "string",
+              "default": "Medium"
+            },
+            "deadline": {
+              "type": "string",
+              "default": ""
+            },
+            "status": {
+              "type": "string",
+              "default": "todo"
+            },
+            "subtasks": {
+              "type": "array",
+              "default": []
+            }
+          }
+        },
+        "default": []
+      },
+      "milestones": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "any",
+              "required": true
+            },
+            "title": {
+              "type": "string",
+              "required": true
+            },
+            "dueDate": {
+              "type": "string",
+              "default": ""
+            },
+            "status": {
+              "type": "string",
+              "default": "pending"
+            },
+            "progress": {
+              "type": "number",
+              "default": 0
+            }
+          }
+        },
+        "default": []
+      },
+      "docs": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "any",
+              "required": true
+            },
+            "type": {
+              "type": "string",
+              "default": ""
+            },
+            "content": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        },
+        "default": []
+      },
+      "resources": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "any",
+              "required": true
+            },
+            "name": {
+              "type": "string",
+              "required": true
+            },
+            "type": {
+              "type": "string",
+              "default": ""
+            },
+            "url": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        },
+        "default": []
+      },
+      "bugs": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "any",
+              "required": true
+            },
+            "title": {
+              "type": "string",
+              "required": true
+            },
+            "description": {
+              "type": "string",
+              "default": ""
+            },
+            "severity": {
+              "type": "string",
+              "default": "Minor"
+            },
+            "module": {
+              "type": "string",
+              "default": ""
+            },
+            "status": {
+              "type": "string",
+              "default": "In Progress"
+            },
+            "date": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        },
+        "default": []
+      },
+      "deployments": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "any",
+              "required": true
+            },
+            "env": {
+              "type": "string",
+              "default": ""
+            },
+            "platform": {
+              "type": "string",
+              "default": ""
+            },
+            "url": {
+              "type": "string",
+              "default": ""
+            },
+            "version": {
+              "type": "string",
+              "default": ""
+            },
+            "date": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        },
+        "default": []
+      },
+      "releases": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "any",
+              "required": true
+            },
+            "version": {
+              "type": "string",
+              "required": true
+            },
+            "date": {
+              "type": "string",
+              "default": ""
+            },
+            "releaseNotes": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        },
+        "default": []
+      }
+    }
+  },
+  "SkillProfile": {
+    "type": "object",
+    "properties": {
+      "xp": {
+        "type": "number",
+        "default": 0
+      },
+      "coins": {
+        "type": "number",
+        "default": 0
+      },
+      "level": {
+        "type": "number",
+        "default": 1
+      },
+      "streak": {
+        "type": "number",
+        "default": 0
+      },
+      "lastActiveDate": {
+        "type": "string",
+        "default": ""
+      },
+      "completedChallenges": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "default": []
+      },
+      "unlockedAchievements": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "default": [
+          1
+        ]
+      },
+      "claimedAchievements": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "default": []
+      },
+      "missionsProgress": {
+        "type": "object",
+        "default": {}
+      },
+      "stats": {
+        "type": "object",
+        "properties": {
+          "totalGames": {
+            "type": "number",
+            "default": 0
+          },
+          "accuracy": {
+            "type": "number",
+            "default": 100
+          },
+          "codingCompleted": {
+            "type": "number",
+            "default": 0
+          },
+          "quizzesCompleted": {
+            "type": "number",
+            "default": 0
+          },
+          "logicScore": {
+            "type": "number",
+            "default": 0
+          },
+          "reactionTime": {
+            "type": "number",
+            "default": 0
+          },
+          "totalAttempts": {
+            "type": "number",
+            "default": 0
+          },
+          "correctAttempts": {
+            "type": "number",
+            "default": 0
+          }
+        }
+      }
+    }
+  },
+  "SleepLog": {
+    "type": "object",
+    "properties": {
+      "date": {
+        "type": "string",
+        "required": true
+      },
+      "day": {
+        "type": "string",
+        "required": true
+      },
+      "hours": {
+        "type": "number",
+        "required": true
+      }
+    }
+  },
+  "StudyCourse": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "required": true
+      },
+      "subject": {
+        "type": "string",
+        "required": true
+      },
+      "estimatedHours": {
+        "type": "string",
+        "default": ""
+      },
+      "modules": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "required": true
+            },
+            "completed": {
+              "type": "boolean",
+              "default": false
+            },
+            "id": {
+              "type": "any"
+            }
+          }
+        },
+        "default": []
+      },
+      "progress": {
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 100
+      }
+    }
+  },
+  "StudyNote": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "required": true
+      },
+      "subject": {
+        "type": "string",
+        "required": true
+      },
+      "content": {
+        "type": "string",
+        "default": ""
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "default": []
+      },
+      "pinned": {
+        "type": "boolean",
+        "default": false
+      },
+      "favorite": {
+        "type": "boolean",
+        "default": false
+      }
+    }
+  },
+  "StudyPdf": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "required": true
+      },
+      "subject": {
+        "type": "string",
+        "required": true
+      },
+      "currentPage": {
+        "type": "number",
+        "default": 0
+      },
+      "totalPages": {
+        "type": "number",
+        "default": 100
+      },
+      "lastOpened": {
+        "type": "string",
+        "default": "Just added"
+      }
+    }
+  },
+  "StudyResource": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "required": true
+      },
+      "url": {
+        "type": "string",
+        "required": true
+      },
+      "subject": {
+        "type": "string",
+        "required": true
+      },
+      "type": {
+        "type": "string",
+        "default": "Website"
+      },
+      "favorite": {
+        "type": "boolean",
+        "default": false
+      }
+    }
+  },
+  "StudyRevision": {
+    "type": "object",
+    "properties": {
+      "topic": {
+        "type": "string",
+        "required": true
+      },
+      "subject": {
+        "type": "string",
+        "required": true
+      },
+      "interval": {
+        "type": "string",
+        "default": "Weekly"
+      },
+      "dueDate": {
+        "type": "string",
+        "required": true
+      },
+      "status": {
+        "type": "string",
+        "default": "upcoming",
+        "enum": [
+          "upcoming",
+          "completed",
+          "overdue"
+        ]
+      }
+    }
+  },
+  "StudySession": {
+    "type": "object",
+    "properties": {
+      "subject": {
+        "type": "string",
+        "required": true
+      },
+      "type": {
+        "type": "string",
+        "default": "Practice"
+      },
+      "durationSeconds": {
+        "type": "number",
+        "required": true
+      },
+      "durationText": {
+        "type": "string",
+        "default": "0.0h"
+      },
+      "date": {
+        "type": "string",
+        "required": true
+      }
+    }
+  },
+  "StudySubject": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "default": ""
+      },
+      "color": {
+        "type": "string",
+        "default": "blue"
+      },
+      "studyGoal": {
+        "type": "string",
+        "default": "2h/week"
+      },
+      "progress": {
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 100
+      },
+      "favorite": {
+        "type": "boolean",
+        "default": false
+      }
+    }
+  },
+  "Task": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "default": ""
+      },
+      "category": {
+        "type": "string",
+        "default": "Others"
+      },
+      "priority": {
+        "type": "string",
+        "default": "medium",
+        "enum": [
+          "critical",
+          "high",
+          "medium",
+          "low",
+          "Critical",
+          "High",
+          "Medium",
+          "Low"
+        ]
+      },
+      "deadline": {
+        "type": "date"
+      },
+      "completed": {
+        "type": "boolean",
+        "default": false
+      },
+      "status": {
+        "type": "string",
+        "default": "todo",
+        "enum": [
+          "todo",
+          "in-progress",
+          "done",
+          "archived"
+        ]
+      },
+      "subtasks": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "required": true
+            },
+            "completed": {
+              "type": "boolean",
+              "default": false
+            },
+            "id": {
+              "type": "any"
+            }
+          }
+        },
+        "default": []
+      },
+      "completedAt": {
+        "type": "date"
+      }
+    }
+  },
+  "UserPreferences": {
+    "type": "object",
+    "properties": {
+      "appearance": {
+        "type": "object",
+        "properties": {
+          "theme": {
+            "type": "string",
+            "default": "Dark"
+          },
+          "accentColor": {
+            "type": "string",
+            "default": "indigo"
+          },
+          "fontSize": {
+            "type": "string",
+            "default": "medium"
+          },
+          "sidebarStyle": {
+            "type": "string",
+            "default": "glass"
+          },
+          "density": {
+            "type": "string",
+            "default": "default"
+          }
+        }
+      },
+      "dashboard": {
+        "type": "object",
+        "properties": {
+          "widgets": {
+            "type": "object",
+            "properties": {
+              "study": {
+                "type": "boolean",
+                "default": true
+              },
+              "coding": {
+                "type": "boolean",
+                "default": true
+              },
+              "tasks": {
+                "type": "boolean",
+                "default": true
+              },
+              "projects": {
+                "type": "boolean",
+                "default": true
+              },
+              "health": {
+                "type": "boolean",
+                "default": true
+              },
+              "skills": {
+                "type": "boolean",
+                "default": true
+              }
+            }
+          },
+          "defaultLanding": {
+            "type": "string",
+            "default": "overview"
+          }
+        }
+      },
+      "notifications": {
+        "type": "object",
+        "properties": {
+          "tasks": {
+            "type": "boolean",
+            "default": true
+          },
+          "planner": {
+            "type": "boolean",
+            "default": true
+          },
+          "study": {
+            "type": "boolean",
+            "default": true
+          },
+          "coding": {
+            "type": "boolean",
+            "default": true
+          },
+          "projects": {
+            "type": "boolean",
+            "default": true
+          },
+          "health": {
+            "type": "boolean",
+            "default": true
+          },
+          "skills": {
+            "type": "boolean",
+            "default": true
+          },
+          "focus": {
+            "type": "boolean",
+            "default": true
+          },
+          "sound": {
+            "type": "boolean",
+            "default": true
+          },
+          "voiceEnabled": {
+            "type": "boolean",
+            "default": true
+          },
+          "preferredVoice": {
+            "type": "string",
+            "default": "Default"
+          }
+        }
+      },
+      "study": {
+        "type": "object",
+        "properties": {
+          "defaultDuration": {
+            "type": "number",
+            "default": 45
+          },
+          "breakDuration": {
+            "type": "number",
+            "default": 10
+          },
+          "revisionFrequency": {
+            "type": "string",
+            "default": "Weekly"
+          },
+          "preferredSubjects": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [
+              "DSA",
+              "DBMS",
+              "Operating Systems",
+              "Networks"
+            ]
+          },
+          "pdfViewer": {
+            "type": "string",
+            "default": "Default Browser"
+          }
+        }
+      },
+      "coding": {
+        "type": "object",
+        "properties": {
+          "defaultLanguage": {
+            "type": "string",
+            "default": "JavaScript"
+          },
+          "dailyGoal": {
+            "type": "number",
+            "default": 3
+          },
+          "dsaGoal": {
+            "type": "number",
+            "default": 100
+          },
+          "timerDuration": {
+            "type": "number",
+            "default": 60
+          },
+          "codeTheme": {
+            "type": "string",
+            "default": "vs-dark"
+          }
+        }
+      },
+      "timer": {
+        "type": "object",
+        "properties": {
+          "pomodoroWork": {
+            "type": "number",
+            "default": 25
+          },
+          "shortBreak": {
+            "type": "number",
+            "default": 5
+          },
+          "longBreak": {
+            "type": "number",
+            "default": 15
+          },
+          "autoStartBreaks": {
+            "type": "boolean",
+            "default": true
+          },
+          "alarmSound": {
+            "type": "string",
+            "default": "Chime"
+          }
+        }
+      },
+      "security": {
+        "type": "object",
+        "properties": {
+          "appLock": {
+            "type": "boolean",
+            "default": false
+          },
+          "passcode": {
+            "type": "string",
+            "default": ""
+          },
+          "timeout": {
+            "type": "number",
+            "default": 15
+          }
+        }
+      }
+    }
+  },
+  "UserProfile": {
+    "type": "object",
+    "properties": {
+      "fullName": {
+        "type": "string",
+        "default": ""
+      },
+      "username": {
+        "type": "string",
+        "default": ""
+      },
+      "photo": {
+        "type": "string",
+        "default": ""
+      },
+      "bio": {
+        "type": "string",
+        "default": ""
+      },
+      "college": {
+        "type": "string",
+        "default": ""
+      },
+      "skills": {
+        "type": "string",
+        "default": ""
+      },
+      "careerGoal": {
+        "type": "string",
+        "default": ""
+      }
+    }
+  },
+  "WaterLog": {
+    "type": "object",
+    "properties": {
+      "date": {
+        "type": "string",
+        "required": true
+      },
+      "intake": {
+        "type": "number",
+        "default": 0
+      },
+      "goal": {
+        "type": "number",
+        "default": 8
+      }
+    }
+  },
+  "Workout": {
+    "type": "object",
+    "properties": {
+      "type": {
+        "type": "string",
+        "required": true
+      },
+      "duration": {
+        "type": "number",
+        "required": true
+      },
+      "calories": {
+        "type": "number",
+        "default": 0
+      },
+      "status": {
+        "type": "string",
+        "default": "Completed"
+      },
+      "notes": {
+        "type": "string",
+        "default": ""
+      },
+      "date": {
+        "type": "string",
+        "required": true
+      }
+    }
+  }
+}
